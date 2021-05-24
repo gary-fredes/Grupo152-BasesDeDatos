@@ -8,7 +8,7 @@
 
     $comuna = $_POST["comuna"];
 
- 	$query = "SELECT Vehiculos.vid, Vehiculos.uid, Vehiculos.patente, Vehiculos.estado, Vehiculos.tipo, Comunas.nombre FROM Comunas,Direcciones,Unidades,Vehiculos WHERE Comunas.nombre LIKE LOWER('%$comuna%') 
+ 	$query = "SELECT Vehiculos.vid, Vehiculos.uid, Vehiculos.patente, Vehiculos.estado, Vehiculos.tipo FROM Comunas,Direcciones,Unidades,Vehiculos WHERE Comunas.nombre LIKE LOWER('%$comuna%') 
             AND Comunas.comid = Direcciones.comid AND Direcciones.dirid = Unidades.direccion AND Vehiculos.uid = Unidades.uid;";
 	$result = $db -> prepare($query);
 	$result -> execute();
@@ -24,7 +24,7 @@
       <th>Tipo</th>
     </tr>
   <?php
-    echo "<h2>Vehiculos presentes en unidades de la comuna $vehiculos[0][5]</h2>";
+    echo "<h2>Vehiculos presentes en unidades de la/s comuna/s similar/es a '$comuna'";
 	foreach ($vehiculos as $vehiculo) {
   		echo "<tr> <td>$vehiculo[0]</td> <td>$vehiculo[1]</td> <td>$vehiculo[2]</td> <td>$vehiculo[3]</td> <td>$vehiculo[4]</td></tr>";
 	}
