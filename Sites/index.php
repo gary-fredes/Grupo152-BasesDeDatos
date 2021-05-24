@@ -45,10 +45,29 @@
 
   <h3 align="center"> Vehiculos que han realizado un despacho a cierta comuna durante cierto año</h3>
 
+  <?php
+  require("config/conexion.php");
+  $result = $db -> prepare("SELECT DISTINCT nombre FROM Comunas;");
+  $result -> execute();
+  $dataCollected = $result -> fetchAll();
+  ?>
+
   <form align="center" action="consultas/consulta_vehiculos_comuna_año.php" method="post">
     Comuna:
-    <input type="text" name="Comuna">
+    <select name="comuna">
+      <?php
+      
+      foreach ($dataCollected as $d) {
+        echo "<option value=$d[0]>$d[0]</option>";
+      }
+      ?>
+    </select>
+    <br><br>
+
+    Año:
+    <input type="number" name="año" min="1990" max="2021">
     <br/><br/>
+
     <input type="submit" value="Buscar">
   </form>
   <br>

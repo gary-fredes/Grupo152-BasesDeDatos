@@ -25,7 +25,7 @@
       <th>Tipo</th>
     </tr>
   <?php
-    echo "<h2>Vehiculos presentes en unidades de la/s comuna/s similar/es a '$comuna'";
+    echo "<h2> Vehiculos presentes en unidades de la comuna de $comuna </h2>";
 	foreach ($vehiculos as $vehiculo) {
   		echo "<tr> <td>$vehiculo[0]</td> <td>$vehiculo[1]</td> <td>$vehiculo[2]</td> <td>$vehiculo[3]</td> <td>$vehiculo[4]</td></tr>";
 	}
