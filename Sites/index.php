@@ -65,7 +65,7 @@
     <br><br>
 
     Año:
-    <input type="number" name="año" min="1990" max="2021">
+    <input type="number" name="año" min="1990" max="2030">
     <br/><br/>
 
     <input type="submit" value="Buscar">
