@@ -50,7 +50,7 @@
   $dataCollected = $result -> fetchAll();
   ?>
 
-  <form align="center" action="consultas/consulta_Vehiculos_unidades_en_comuna.php" method="post">
+  <form align="center" action="consultas/consulta_vehiculos_unidades_en_comuna.php" method="post">
     Seleccinar una comuna:
     <select name="comuna">
       <?php
