@@ -15,6 +15,7 @@
 	$vehiculos = $result -> fetchAll();
   ?>
 
+    <div align='center'>
 	<table>
     <tr>
       <th>vid</th>
@@ -30,5 +31,6 @@
 	}
   ?>
 	</table>
+    </div>
 
 <?php include('../templates/footer.html'); ?>
