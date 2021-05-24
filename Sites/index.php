@@ -8,7 +8,7 @@
 
   <h3 align="center"> ¿Quieres conocer las direcciones de las unidades?</h3>
 
-  <form align="center" action="consultas/consulta_tipo_nombre.php" method="post">
+  <form align="center" action="consultas/consulta_direccion_unidades.php" method="post">
     <input type="submit" value="Buscar">
   </form>
   
@@ -16,11 +16,11 @@
   <br>
   <br>
 
-  <h3 align="center"> ¿Quieres buscar un Pokemón por su ID?</h3>
+  <h3 align="center"> Vehiculos de las unidades en la comuna</h3>
 
-  <form align="center" action="consultas/consulta_stats.php" method="post">
+  <form align="center" action="consultas/consulta_vehiculos_unidades_en_comuna.php" method="post">
     Id:
-    <input type="text" name="id_elegido">
+    <input type="text" name="comuna">
     <br/><br/>
     <input type="submit" value="Buscar">
   </form>
