@@ -6,24 +6,19 @@
   #Llama a conexión, crea el objeto PDO y obtiene la variable $db
   require("../config/conexion.php");
 
-	$tipo = $_POST["tipo_elegido"];
-	$nombre = $_POST["nombre_pokemon"];
-
- 	$query = "SELECT pid,nombre, tipo FROM pokemones WHERE tipo LIKE '%$tipo%' AND nombre LIKE '%$nombre%';";
+ 	$query = "SELECT Direcciones.nombre FROM Direcciones, Unidades WHERE Direcciones.dirid = Unidades.direccion;";
 	$result = $db -> prepare($query);
 	$result -> execute();
-	$pokemones = $result -> fetchAll();
+	$direcciones = $result -> fetchAll();
   ?>
 
 	<table>
     <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Tipo</th>
+      <th>Direccion</th>
     </tr>
   <?php
-	foreach ($pokemones as $pokemon) {
-  		echo "<tr> <td>$pokemon[0]</td> <td>$pokemon[1]</td> <td>$pokemon[2]</td> </tr>";
+	foreach ($direcciones as $direccion) {
+  		echo "<tr> <td>$direccion</td> </tr>";
 	}
   ?>
 	</table>
