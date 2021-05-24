@@ -18,7 +18,7 @@
     </tr>
   <?php
 	foreach ($direcciones as $direccion) {
-  		echo "<tr> <td>$direccion</td> </tr>";
+  		echo "<tr> <td>$direccion[0]</td> </tr>";
 	}
   ?>
 	</table>
