@@ -17,11 +17,10 @@
 
 	<table>
     <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Altura</th>
-      <th>Peso</th>
-      <th>Experiencia Base</th>
+      <th>vid</th>
+      <th>uid</th>
+      <th>Patente</th>
+      <th>Estado</th>
       <th>Tipo</th>
     </tr>
   <?php
