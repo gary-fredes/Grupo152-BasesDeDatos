@@ -74,7 +74,7 @@
   <br>
   <br>
 
-  <h3 align="center">Vehiculos de las unidades en la comuna</h3>
+  <h3 align="center">Despachos realizados en cierta comuna por repartidores entre ciertas edades</h3>
 
   <?php
   require("config/conexion.php");
@@ -83,7 +83,7 @@
   $dataCollected = $result -> fetchAll();
   ?>
 
-  <form align="center" action="consultas/consulta_vehiculos_unidades_en_comuna.php" method="post">
+  <form align="center" action="consultas/consulta_tipo_edad.php" method="post">
     Seleccinar una comuna:
     <select name="comuna">
       <?php
@@ -94,6 +94,15 @@
       ?>
     </select>
     <br><br>
+
+    Minimo Edad:
+    <input type="number" name="min" min="10" max="1000">
+    <br/><br/>
+
+    Maximo Edad:
+    <input type="number" name="max" min="10" max="1000">
+    <br/><br/>
+
     <input type="submit" value="Buscar">
   </form>
 
