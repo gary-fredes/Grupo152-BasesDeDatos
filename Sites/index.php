@@ -120,7 +120,7 @@
   $dataCollected = $result -> fetchAll();
   ?>
 
-  <form align="center" action="consultas/consulta_jefes_comunas.php" method="post">
+  <form align="center" action="consultas/consulta_jefe_comunas.php" method="post">
     Seleccinar una comuna:
     <select name="comuna">
       <?php
