@@ -122,7 +122,7 @@
 
   <form align="center" action="consultas/consulta_jefe_comunas.php" method="post">
     Seleccionar una comuna:
-    <select name="comuna">
+    <select name="comuna1">
       <?php
       
       foreach ($dataCollected as $d) {
@@ -133,7 +133,7 @@
     <br><br>
 
     Seleccionar otra comuna:
-    <select name="comuna">
+    <select name="comuna2">
       <?php
       
       foreach ($dataCollected as $d) {
