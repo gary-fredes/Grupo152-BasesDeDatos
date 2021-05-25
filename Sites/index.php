@@ -84,7 +84,7 @@
   ?>
 
   <form align="center" action="consultas/consulta_comuna_edad.php" method="post">
-    Seleccinar una comuna:
+    Seleccionar una comuna:
     <select name="comuna">
       <?php
       
@@ -142,6 +142,30 @@
       ?>
     </select>
     <br/><br/>
+
+    <input type="submit" value="Buscar">
+  </form>
+
+  <h3 align="center">Unidad con mayor cantidad de vehiculos de cierto tipo</h3>
+
+  <?php
+  require("config/conexion.php");
+  $result = $db -> prepare("SELECT DISTINCT tipo FROM Vehiculos;");
+  $result -> execute();
+  $dataCollected = $result -> fetchAll();
+  ?>
+
+<form align="center" action="consultas/consulta_tipo_vehiculos.php" method="post">
+    Seleccionar un tipo de vehiculo:
+    <select name="tipo">
+      <?php
+      
+      foreach ($dataCollected as $d) {
+        echo "<option value=$d[0]>$d[0]</option>";
+      }
+      ?>
+    </select>
+    <br><br>
 
     <input type="submit" value="Buscar">
   </form>
