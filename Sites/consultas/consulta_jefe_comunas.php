@@ -11,13 +11,13 @@
 
  	$query = "SELECT Personal.pid, Personal.nombre, Personal.rut, Personal.sexo, Personal.edad, Unidades.uid
             FROM Personal,Unidades,Unidades_Comunas,Comunas 
-            WHERE Comunas.nombre LIKE LOWER('%santiago%')
+            WHERE Comunas.nombre LIKE LOWER('%$comuna1%')
             AND Comunas.comid = Unidades_Comunas.comid
             AND Unidades_Comunas.uid = Unidades.uid
             INTERSECT
             SELECT Personal.pid, Personal.nombre, Personal.rut, Personal.sexo, Personal.edad, Unidades.uid
             FROM Personal,Unidades,Unidades_Comunas,Comunas 
-            WHERE Comunas.nombre LIKE LOWER('%coquimbo%')
+            WHERE Comunas.nombre LIKE LOWER('%$comuna2%')
             AND Comunas.comid = Unidades_Comunas.comid
             AND Unidades_Comunas.uid = Unidades.uid
             ;";
