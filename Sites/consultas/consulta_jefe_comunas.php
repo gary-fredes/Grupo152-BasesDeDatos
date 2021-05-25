@@ -10,18 +10,16 @@
     $comuna2 = $_POST["comuna2"];
 
  	$query = "SELECT Personal.pid, Personal.nombre, Personal.rut, Personal.sexo, Personal.edad, Unidades.uid
-            FROM
-            (SELECT Personal,Unidades
             FROM Personal,Unidades,Unidades_Comunas,Comunas 
-            WHERE Comunas.nombre LIKE LOWER('%$comuna1%')
+            WHERE Comunas.nombre LIKE LOWER('%santiago%')
             AND Comunas.comid = Unidades_Comunas.comid
             AND Unidades_Comunas.uid = Unidades.uid
             INTERSECT
-            SELECT Personal,Unidades
+            SELECT Personal.pid, Personal.nombre, Personal.rut, Personal.sexo, Personal.edad, Unidades.uid
             FROM Personal,Unidades,Unidades_Comunas,Comunas 
-            WHERE Comunas.nombre LIKE LOWER('%$comuna2%')
+            WHERE Comunas.nombre LIKE LOWER('%coquimbo%')
             AND Comunas.comid = Unidades_Comunas.comid
-            AND Unidades_Comunas.uid = Unidades.uid)
+            AND Unidades_Comunas.uid = Unidades.uid
             ;";
 	$result = $db -> prepare($query);
 	$result -> execute();
