@@ -10,7 +10,7 @@
     $min = $_POST["min"];
     $max = $_POST["max"];
 
- 	$query = "SELECT Despachos FROM Despachos,Personal,Direcciones,Comunas WHERE Comunas.nombre LIKE LOWER('%$comuna%') 
+ 	$query = "SELECT Despachos.did, Despachos.fecha, Despachos.origen, Direcciones.nombre, Despachos.id_compra, Vehiculos, Personal.nombre FROM Despachos,Personal,Direcciones,Comunas WHERE Comunas.nombre LIKE LOWER('%$comuna%') 
             AND Comunas.comid = Direcciones.comid AND Direcciones.dirid = Despachos.destino AND Personal.pid = Despachos.pid
             AND Personal.edad BETWEEN $min AND $max;";
 	$result = $db -> prepare($query);
@@ -30,7 +30,7 @@
       <th>Repartidor</th>
     </tr>
   <?php
-    echo "<h2> Vehiculos presentes en unidades de la comuna de $comuna </h2>";
+    echo "<h2> Despachos realizados a la comuna de $comuna por repartidores con edades entre $min y $max </h2>";
 	foreach ($despachos as $despacho) {
   		echo "<tr> <td>$despacho[0]</td> <td>$despacho[1]</td> <td>$despacho[2]</td> <td>$despacho[3]</td> <td>$despacho[4]</td> <td>$despacho[5]</td> <td>$despacho[6]</td></tr>";
 	}
