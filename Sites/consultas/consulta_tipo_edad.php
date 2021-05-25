@@ -8,7 +8,7 @@
 
     $tipo = $_POST["comuna"];
     $min = $_POST["min"];
-    $max = $_POST["max"]
+    $max = $_POST["max"];
 
  	$query = "SELECT Despachos FROM Despachos,Personal,Direcciones,Comunas WHERE Comunas.nombre LIKE LOWER('%$comuna%') 
             AND Comunas.comid = Direcciones.comid AND Direcciones.dirid = Despachos.destino AND Personal.pid = Despachos.pid
