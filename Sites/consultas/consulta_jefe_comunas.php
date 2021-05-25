@@ -10,6 +10,7 @@
     $comuna2 = $_POST["comuna2"];
 
  	$query = "SELECT Personal.pid, Personal.nombre, Personal.rut, Personal.sexo, Personal.edad, Unidades.uid
+            FROM
             (SELECT Personal,Unidades
             FROM Personal,Unidades,Unidades_Comunas,Comunas 
             WHERE Comunas.nombre LIKE LOWER('%$comuna1%')
