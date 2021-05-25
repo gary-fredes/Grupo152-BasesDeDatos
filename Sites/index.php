@@ -83,7 +83,7 @@
   $dataCollected = $result -> fetchAll();
   ?>
 
-  <form align="center" action="consultas/consulta_tipo_edad.php" method="post">
+  <form align="center" action="consultas/consulta_comuna_edad.php" method="post">
     Seleccinar una comuna:
     <select name="comuna">
       <?php
@@ -110,5 +110,42 @@
   <br>
   <br>
   <br>
+
+  <h3 align="center">Jefes de Unidades que realizan despachos a dos comunas en especifico</h3>
+
+  <?php
+  require("config/conexion.php");
+  $result = $db -> prepare("SELECT DISTINCT nombre FROM Comunas;");
+  $result -> execute();
+  $dataCollected = $result -> fetchAll();
+  ?>
+
+  <form align="center" action="consultas/consulta_jefes_comunas.php" method="post">
+    Seleccinar una comuna:
+    <select name="comuna">
+      <?php
+      
+      foreach ($dataCollected as $d) {
+        echo "<option value=$d[0]>$d[0]</option>";
+      }
+      ?>
+    </select>
+    <br><br>
+
+    Seleccinar otra comuna:
+    <select name="comuna">
+      <?php
+      
+      foreach ($dataCollected as $d) {
+        echo "<option value=$d[0]>$d[0]</option>";
+      }
+      ?>
+    </select>
+    <br/><br/>
+
+    <input type="submit" value="Buscar">
+  </form>
+
+
 </body>
 </html>
