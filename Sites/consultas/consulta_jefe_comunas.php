@@ -14,12 +14,14 @@
             WHERE Comunas.nombre LIKE LOWER('%$comuna1%')
             AND Comunas.comid = Comunas_unidades.comid
             AND Comunas_unidades.uid = Unidades.uid
+            AND Unidades.jefe = Personal.pid
             INTERSECT
             SELECT Personal.pid, Personal.nombre, Personal.rut, Personal.sexo, Personal.edad, Unidades.uid
             FROM Personal,Unidades,Comunas_unidades,Comunas 
             WHERE Comunas.nombre LIKE LOWER('%$comuna2%')
             AND Comunas.comid = Comunas_unidades.comid
             AND Comunas_unidades.uid = Unidades.uid
+            AND Unidades.jefe = Personal.pid
             ;";
 	$result = $db -> prepare($query);
 	$result -> execute();
