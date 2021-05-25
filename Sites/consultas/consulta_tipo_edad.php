@@ -6,7 +6,7 @@
   #Llama a conexión, crea el objeto PDO y obtiene la variable $db
   require("../config/conexion.php");
 
-    $tipo = $_POST["comuna"];
+    $comuna = $_POST["comuna"];
     $min = $_POST["min"];
     $max = $_POST["max"];
 
