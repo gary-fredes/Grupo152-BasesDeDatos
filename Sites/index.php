@@ -121,7 +121,7 @@
   ?>
 
   <form align="center" action="consultas/consulta_jefe_comunas.php" method="post">
-    Seleccinar una comuna:
+    Seleccionar una comuna:
     <select name="comuna">
       <?php
       
@@ -132,7 +132,7 @@
     </select>
     <br><br>
 
-    Seleccinar otra comuna:
+    Seleccionar otra comuna:
     <select name="comuna">
       <?php
       

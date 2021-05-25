@@ -9,38 +9,38 @@
     $comuna1 = $_POST["comuna1"];
     $comuna2 = $_POST["comuna2"];
 
- 	$query = "SELECT Personal
+ 	$query = "SELECT Personal.pid, Personal.nombre, Personal.rut, Personal.sexo, Personal.edad, Unidades.uid
+            (SELECT Personal,Unidades
             FROM Personal,Unidades,Unidades_Comunas,Comunas 
             WHERE Comunas.nombre LIKE LOWER('%$comuna1%')
             AND Comunas.comid = Unidades_Comunas.comid
             AND Unidades_Comunas.uid = Unidades.uid
             INTERSECT
-            SELECT Personal
+            SELECT Personal,Unidades
             FROM Personal,Unidades,Unidades_Comunas,Comunas 
             WHERE Comunas.nombre LIKE LOWER('%$comuna2%')
             AND Comunas.comid = Unidades_Comunas.comid
-            AND Unidades_Comunas.uid = Unidades.uid 
+            AND Unidades_Comunas.uid = Unidades.uid)
             ;";
 	$result = $db -> prepare($query);
 	$result -> execute();
-	$despachos = $result -> fetchAll();
+	$jefes = $result -> fetchAll();
   ?>
 
     <div align='center'>
 	<table>
     <tr>
-      <th>did</th>
-      <th>Fecha</th>
-      <th>Origen</th>
-      <th>Destino</th>
-      <th>Id compra</th>
-      <th>Vehiculo</th>
-      <th>Repartidor</th>
+      <th>pid</th>
+      <th>Nombre</th>
+      <th>Rut</th>
+      <th>Sexo</th>
+      <th>Edad</th>
+      <th>Unidad Jefatura</th>
     </tr>
   <?php
     echo "<h2> Jefes de unidades que realizan despachos a la comuna de  $comuna1 y $comuna2 </h2>";
 	foreach ($jefes as $jefe) {
-  		echo "<tr> <td>$despacho[0]</td> <td>$despacho[1]</td> <td>$despacho[2]</td> <td>$despacho[3]</td> <td>$despacho[4]</td> <td>$despacho[5]</td> <td>$despacho[6]</td></tr>";
+  		echo "<tr> <td>$jefe[0]</td> <td>$jefe[1]</td> <td>$jefe[2]</td> <td>$jefe[3]</td> <td>$jefe[4]</td> <td>$jefe[5]</td> <td>$jefe[6]</td></tr>";
 	}
   ?>
 	</table>
