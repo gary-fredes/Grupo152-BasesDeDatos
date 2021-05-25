@@ -10,11 +10,12 @@
     $min = $_POST["min"];
     $max = $_POST["max"];
 
- 	$query = "SELECT Despachos.did, Despachos.fecha, Despachos.origen, Direcciones.nombre, Despachos.idcompra, Despachos.vid, Personal.nombre 
-            FROM Despachos,Personal,Direcciones,Comunas WHERE Comunas.nombre LIKE LOWER('%$comuna%') 
-            AND Comunas.comid = Direcciones.comid AND Direcciones.dirid = Despachos.destino 
+ 	$query = "SELECT Despachos.did, Despachos.fecha, Direcciones2.nombre, Direcciones1.nombre, Despachos.idcompra, Despachos.vid, Personal.nombre 
+            FROM Despachos,Personal,Direcciones AS Direcciones1,Comunas,Direcciones AS Direcciones2 WHERE Comunas.nombre LIKE LOWER('%$comuna%') 
+            AND Comunas.comid = Direcciones1.comid AND Direcciones1.dirid = Despachos.destino 
             AND Personal.pid = Despachos.pid
-            AND Personal.edad BETWEEN $min AND $max;";
+            AND Personal.edad BETWEEN $min AND $max
+            AND Direcciones2.dirid = Despachos.origen;";
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$despachos = $result -> fetchAll();
