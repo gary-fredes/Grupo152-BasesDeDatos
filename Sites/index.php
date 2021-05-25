@@ -1,12 +1,12 @@
 <?php include('templates/header.html');   ?>
 
 <body>
-  <h1 align="center">Biblioteca Pokemón </h1>
-  <p style="text-align:center;">Aquí podrás encontrar información sobre pokemones.</p>
+  <h1 align="center">Consultas Entrega 2 - Grupo 152 </h1>
+  <p style="text-align:center;">Las consultas presentes estan en el orden en el que fueron pedidas en el enunciado</p>
 
   <br>
 
-  <h3 align="center"> ¿Quieres conocer las direcciones de las unidades?</h3>
+  <h3 align="center"> Direcciones de todas las unidades</h3>
 
   <form align="center" action="consultas/consulta_direccion_unidades.php" method="post">
     <input type="submit" value="Buscar">
